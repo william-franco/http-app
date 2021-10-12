@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:encrypted_shared_preferences/encrypted_shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:http_app/routes/routes.dart';
@@ -16,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> _checkFirstSeen() async {
     await _prefs.getString(_firstSeen).then((String firstTime) async {
-      print('First Time? $firstTime');
+      log('First Time? $firstTime');
       if (firstTime == 'no') {
         // If this is not the first time the application has been opened, start page.
         Navigator.of(context).pushReplacementNamed(Routes.bottom);

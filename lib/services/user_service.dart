@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 import 'package:http_app/models/user_model.dart';
@@ -15,7 +16,7 @@ class HttpService {
     );
     if (res.statusCode == 200) {
       var body = jsonDecode(res.body);
-      print(body);
+      log('$body');
       return UserModel.jsonToList(body);
     } else {
       throw Exception(
@@ -32,7 +33,7 @@ class HttpService {
     );
     if (res.statusCode == 200) {
       var body = jsonDecode(res.body);
-      print(body);
+      log('$body');
       return UserModel.fromJson(body);
     } else {
       throw Exception(
@@ -48,7 +49,7 @@ class HttpService {
       headers: {"Accept": "application/json"},
     );
     if (res.statusCode == 200) {
-      print('User deleted.');
+      log('User deleted.');
     } else {
       throw Exception('Unable to delete user.' + res.statusCode.toString());
     }

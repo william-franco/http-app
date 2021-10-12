@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 class BottomNavBarProvider with ChangeNotifier {
@@ -12,6 +14,6 @@ class BottomNavBarProvider with ChangeNotifier {
   }
 
   void _debugProvider() {
-    print('Current tab: $_currentIndex');
+    log('Current tab: $_currentIndex');
   }
 }
